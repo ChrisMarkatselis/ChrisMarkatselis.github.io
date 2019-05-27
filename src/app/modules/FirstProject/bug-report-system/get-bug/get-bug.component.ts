@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GetBugService} from './get-bug.service';
+import {Bugs} from './bug.model';
 
 @Component({
   selector: 'app-get-bug',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./get-bug.component.css']
 })
 export class GetBugComponent implements OnInit {
+bugs: Bugs[];
 
-  constructor() { }
+  constructor(private getBug: GetBugService) { }
 
   ngOnInit() {
+    this.getBug.getBugReport().subscribe((data) => {
+      this.bugs = data;
+    });
   }
 
 }

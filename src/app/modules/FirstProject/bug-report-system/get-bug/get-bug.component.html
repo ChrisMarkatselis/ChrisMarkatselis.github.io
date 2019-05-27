@@ -1,3 +1,30 @@
-<p>
-  get-bug works!
-</p>
+<ul>
+  <li *ngFor="let bug of bugs">
+    id: {{bug.id}}
+    title: {{bug.title}}
+    priority: {{bug.priority}};
+    reporter: {{bug.reporter}};
+    status: {{bug.status}};
+    createdAt: {{bug.createdAt}};
+  </li>
+</ul>
+
+<table>
+<tr *ngFor="let bugT of bugs">
+  <td>
+    title: {{bugT.title}}
+  </td>
+  <td>
+    priority: {{bugT.priority}}
+  </td>
+  <td>
+    reporter: {{bugT.reporter}}
+  </td>
+  <td>
+    Date Creaded: {{bugT.createdAt}}
+  </td>
+  <td>
+    status: {{bugT.status}}
+  </td>
+  </tr>
+</table>

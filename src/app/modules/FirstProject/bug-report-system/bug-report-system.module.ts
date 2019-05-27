@@ -4,11 +4,13 @@ import { GetBugComponent } from './get-bug/get-bug.component';
 import { IncertBugComponent } from './incert-bug/incert-bug.component';
 import { DeleteBugComponent } from './delete-bug/delete-bug.component';
 import { UpdateBugComponent } from './update-bug/update-bug.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [GetBugComponent, IncertBugComponent, DeleteBugComponent, UpdateBugComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   exports: [
     DeleteBugComponent,
