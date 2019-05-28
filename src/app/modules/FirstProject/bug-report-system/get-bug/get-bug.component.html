@@ -1,30 +1,54 @@
+<div class="container text-center">
+  <hr>
+  <h1 class="display-3">Bug Reporting System</h1>
+  <hr>
+  <table class="table table-bordered table-hover">
+    <caption class="text-center font-italic">List of bugs</caption>
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Priority</th>
+        <th>Reporter</th>
+        <th>Date Created</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bug of bugs">
+        <td>
+          {{bug.title}}
+        </td>
+        <td>
+          {{bug.priority}}
+        </td>
+        <td>
+          {{bug.reporter}}
+        </td>
+        <td>
+          {{bug.createdAt}}
+        </td>
+        <td>
+          {{bug.status}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <ul>
   <li *ngFor="let bug of bugs">
-    id: {{bug.id}}
-    title: {{bug.title}}
-    priority: {{bug.priority}};
-    reporter: {{bug.reporter}};
-    status: {{bug.status}};
-    createdAt: {{bug.createdAt}};
+    id: {{bug.id}}<br>
+    title: {{bug.title}}<br>
+    priority: {{bug.priority}}<br>
+    reporter: {{bug.reporter}}<br>
+    status: {{bug.status}}<br>
+    createdAt: {{bug.createdAt}}<br>
+    <ul>
+      <li *ngFor="let comment of bug.comments">
+        Comments _id: {{comment._id}}<br>
+        Comments reporter: {{comment.reporter}}<br>
+        Comments description: {{comment.description}}<br>
+      </li>
+    </ul>
   </li>
 </ul>
-
-<table>
-<tr *ngFor="let bugT of bugs">
-  <td>
-    title: {{bugT.title}}
-  </td>
-  <td>
-    priority: {{bugT.priority}}
-  </td>
-  <td>
-    reporter: {{bugT.reporter}}
-  </td>
-  <td>
-    Date Creaded: {{bugT.createdAt}}
-  </td>
-  <td>
-    status: {{bugT.status}}
-  </td>
-  </tr>
-</table>
