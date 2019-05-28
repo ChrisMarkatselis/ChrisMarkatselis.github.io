@@ -1,0 +1,25 @@
+ #navigation {
+  height: 370px;
+  /* line-height: 300px; */
+  width: 100px;
+  background-color: pink;
+  display: block;
+  text-align: center;
+   margin: 20px;
+   padding: 10px;
+}
+
+#getBtn {
+  margin: 5px;
+  padding: 10px;
+}
+
+#delBtn {
+  margin: 5px;
+  padding: 10px;
+}
+
+#uptBtn{
+  margin: 5px;
+  padding: 10px;
+}
