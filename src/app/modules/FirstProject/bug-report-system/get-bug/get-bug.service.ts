@@ -13,4 +13,8 @@ export class GetBugService {
   getBugReport(): Observable<Bugs[]> {
    return this.http.get<Bugs[]>('http://bug-report-system-server.herokuapp.com/bugs');
   }
+
+  getBugReportSorted(sortBy, sortingDirection): Observable<Bugs[]> {
+    return this.http.get<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=' + sortBy + ',' + sortingDirection);
+  }
 }

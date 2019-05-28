@@ -6,11 +6,11 @@
     <caption class="text-center font-italic">List of bugs</caption>
     <thead class="thead-dark">
       <tr>
-        <th>Title</th>
-        <th>Priority</th>
-        <th>Reporter</th>
-        <th>Date Created</th>
-        <th>Status</th>
+        <th (click)="sort('title')">Title</th>
+        <th (click)="sort('priority')">Priority</th>
+        <th (click)="sort('reporter')">Reporter</th>
+        <th (click)="sort('createdAt')">Date Creaded</th>
+        <th (click)="sort('status')">Status</th>
       </tr>
     </thead>
     <tbody>

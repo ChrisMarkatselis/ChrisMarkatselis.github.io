@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {GetBugService} from './get-bug.service';
-import {Bugs} from './bug.model';
+import { GetBugService } from './get-bug.service';
+import { Bugs } from './bug.model';
 
 @Component({
   selector: 'app-get-bug',
@@ -8,7 +8,8 @@ import {Bugs} from './bug.model';
   styleUrls: ['./get-bug.component.css']
 })
 export class GetBugComponent implements OnInit {
-bugs: Bugs[];
+  bugs: Bugs[];
+  sortingDirection = 'asc';
 
   constructor(private getBug: GetBugService) { }
 
@@ -18,4 +19,14 @@ bugs: Bugs[];
     });
   }
 
+  sort(sortBy) {
+    if (this.sortingDirection === 'asc') {
+      this.sortingDirection = 'desc';
+    } else {
+      this.sortingDirection = 'asc';
+    }
+    this.getBug.getBugReportSorted(sortBy, this.sortingDirection).subscribe((data) => {
+      this.bugs = data;
+    });
+  }
 }
