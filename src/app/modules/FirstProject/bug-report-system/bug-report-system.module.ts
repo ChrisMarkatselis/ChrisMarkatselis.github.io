@@ -5,12 +5,14 @@ import { IncertBugComponent } from './incert-bug/incert-bug.component';
 import { DeleteBugComponent } from './delete-bug/delete-bug.component';
 import { UpdateBugComponent } from './update-bug/update-bug.component';
 import {HttpClientModule} from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [GetBugComponent, IncertBugComponent, DeleteBugComponent, UpdateBugComponent],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   exports: [
     DeleteBugComponent,
