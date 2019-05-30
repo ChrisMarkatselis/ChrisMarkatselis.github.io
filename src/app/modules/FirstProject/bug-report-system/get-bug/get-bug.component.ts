@@ -12,7 +12,7 @@ export class GetBugComponent implements OnInit {
   constructor(private getBug: GetBugService) { }
   bugs: Bugs[];
   sortingDirection = 'asc';
-
+  sortByVar: string;
   p = 1;
 
   ngOnInit() {
@@ -26,6 +26,7 @@ export class GetBugComponent implements OnInit {
     } else {
       this.sortingDirection = 'asc';
     }
+    this.sortByVar = sortBy;
     this.getBug.getBugReportSorted(sortBy, this.sortingDirection).subscribe((data) => {
       this.bugs = data;
     });

@@ -4,11 +4,31 @@
     <thead class="thead-dark">
       <tr>
         <!--<th (click)="sort('index')">Index<i [ngClass]="'fa fa-sort'" style="float:right"></i> </th>-->
-        <th (click)="sort('title')">Title<i [ngClass]="'fa fa-sort'" style="float:right"></i></th>
-        <th (click)="sort('priority')">Priority<i [ngClass]="'fa fa-sort'" style="float:right"></i></th>
-        <th (click)="sort('reporter')">Reporter<i [ngClass]="'fa fa-sort'" style="float:right"></i></th>
-        <th (click)="sort('createdAt')">Date Created<i [ngClass]="'fa fa-sort'" style="float:right"></i></th>
-        <th (click)="sort('status')">Status<i [ngClass]="'fa fa-sort'" style="float:right"></i></th>
+        <th (click)="sort('title')" colspan="1">Title
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'title'" [ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="sortingDirection === 'asc' && sortByVar === 'title'" [ngClass]="'fa fa-sort-up'"></i>
+          <i *ngIf="sortingDirection === 'desc' && sortByVar === 'title'" [ngClass]="'fa fa-sort-down'"></i>
+        </th>
+        <th (click)="sort('priority')" colspan="1">Priority
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'priority'" [ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="sortingDirection === 'asc' && sortByVar === 'priority'" [ngClass]="'fa fa-sort-up'"></i>
+          <i *ngIf="sortingDirection === 'desc' && sortByVar === 'priority'" [ngClass]="'fa fa-sort-down'"></i>
+        </th>
+        <th (click)="sort('reporter')" colspan="1">Reporter
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'reporter'" [ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="sortingDirection === 'asc' && sortByVar === 'reporter'" [ngClass]="'fa fa-sort-up'"></i>
+          <i *ngIf="sortingDirection === 'desc' && sortByVar === 'reporter'" [ngClass]="'fa fa-sort-down'"></i>
+        </th>
+        <th (click)="sort('createdAt')" colspan="1">Date Created
+         <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'createdAt'" [ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="sortingDirection === 'asc' && sortByVar === 'createdAt'" [ngClass]="'fa fa-sort-up'"></i>
+          <i *ngIf="sortingDirection === 'desc' && sortByVar === 'createdAt'" [ngClass]="'fa fa-sort-down'"></i>
+        </th>
+        <th (click)="sort('status')" colspan="1">Status
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'status'"[ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="sortingDirection === 'asc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-up'"></i>
+          <i *ngIf="sortingDirection === 'desc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-down'"></i>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -28,19 +48,19 @@
 </div>
 
 <!--<ul>-->
-  <!--<li *ngFor="let bug of bugs">-->
-    <!--id: {{bug.id}}<br>-->
-    <!--title: {{bug.title}}<br>-->
-    <!--priority: {{bug.priority}}<br>-->
-    <!--reporter: {{bug.reporter}}<br>-->
-    <!--status: {{bug.status}}<br>-->
-    <!--createdAt: {{bug.createdAt}}<br>-->
-    <!--<ul>-->
-      <!--<li *ngFor="let comment of bug.comments">-->
-        <!--Comments _id: {{comment._id}}<br>-->
-        <!--Comments reporter: {{comment.reporter}}<br>-->
-        <!--Comments description: {{comment.description}}<br>-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</li>-->
+<!--<li *ngFor="let bug of bugs">-->
+<!--id: {{bug.id}}<br>-->
+<!--title: {{bug.title}}<br>-->
+<!--priority: {{bug.priority}}<br>-->
+<!--reporter: {{bug.reporter}}<br>-->
+<!--status: {{bug.status}}<br>-->
+<!--createdAt: {{bug.createdAt}}<br>-->
+<!--<ul>-->
+<!--<li *ngFor="let comment of bug.comments">-->
+<!--Comments _id: {{comment._id}}<br>-->
+<!--Comments reporter: {{comment.reporter}}<br>-->
+<!--Comments description: {{comment.description}}<br>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</li>-->
 <!--</ul>-->

@@ -1,0 +1,12 @@
+i {
+  float: right;
+  padding-top: 3.7px;
+}
+
+.iconColor {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+th[colspan="1"]:hover {
+  background: #454d55;
+}
