@@ -8,5 +8,6 @@ i {
 }
 
 th[colspan="1"]:hover {
+  cursor: pointer;
   background: #454d55;
 }
