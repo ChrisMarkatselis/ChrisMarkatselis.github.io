@@ -8,6 +8,7 @@ import { Bugs } from './bug.model';
   styleUrls: ['./get-bug.component.css']
 })
 export class GetBugComponent implements OnInit {
+  private readonly getBugByIdURL = 'https://bug-report-system-server.herokuapp.com/bugs/';
 
   constructor(private getBug: GetBugService) { }
   bugs: Bugs[];
@@ -33,6 +34,7 @@ export class GetBugComponent implements OnInit {
   }
 
   editBugMethod(id){
-    console.log(id);
+
+    console.log(this.getBugByIdURL + id);
   }
 }
