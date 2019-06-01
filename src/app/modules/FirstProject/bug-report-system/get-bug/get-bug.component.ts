@@ -31,4 +31,8 @@ export class GetBugComponent implements OnInit {
       this.bugs = data;
     });
   }
+
+  editBugMethod(id){
+    console.log(id);
+  }
 }

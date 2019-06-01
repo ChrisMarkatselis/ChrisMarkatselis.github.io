@@ -51,3 +51,13 @@ i {
   text-align: right;
   font-family: "Comic Sans MS", cursive, sans-serif;
 }
+
+#editButtonId{
+  font-weight: normal;
+  font-size: 1em;
+  box-shadow: 0 2px 2px -2px #0E1119;
+  border-color: #1F2739;
+  color: #A7A1AE;
+  border-radius: 5px;
+
+}

@@ -29,6 +29,7 @@
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
+        <th> Edit </th>
       </tr>
     </thead>
     <tbody>
@@ -39,6 +40,7 @@
         <td>{{bug.reporter}}</td>
         <td>{{bug.createdAt}}</td>
         <td>{{bug.status}}</td>
+        <td><button id="editButtonId" (click)="editBugMethod(bug.id)" value="editBugMethod">Edit</button></td>
       </tr>
     </tbody>
   </table>
