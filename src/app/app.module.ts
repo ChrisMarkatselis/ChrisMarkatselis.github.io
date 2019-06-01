@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import {BugReportSystemModule} from './modules/FirstProject/bug-report-system/bug-report-system.module';
 import { AppDesignModule } from './modules/FirstProject/bug-report-system/app-design/app-design.module';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { RouterModule } from '@angular/router';
-import { routes } from './routes';
 
 @NgModule({
   declarations: [
@@ -18,8 +16,7 @@ import { routes } from './routes';
     AppRoutingModule,
     BugReportSystemModule,
     AppDesignModule,
-    NgxPaginationModule,
-    RouterModule.forRoot(routes)
+    NgxPaginationModule
 
   ],
   providers: [],

@@ -1,6 +1,4 @@
-<button (click)="InsertNewBug()">Insert bug</button>
 <div class="container text-center">
-
   <table class="table table-bordered table-hover">
     <!-- <caption class="text-center font-italic">List of bugs</caption> -->
     <thead>
@@ -42,7 +40,7 @@
         <td>{{bug.reporter}}</td>
         <td>{{bug.createdAt}}</td>
         <td>{{bug.status}}</td>
-        <td><button id="editButtonId" (click)="editBugMethod(bug.id)" value="editBugMethod" >Edit</button></td>
+        <td><button id="editButtonId" (click)="editBugMethod(bug.id)" value="editBugMethod">Edit</button></td>
       </tr>
     </tbody>
   </table>

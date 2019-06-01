@@ -4,12 +4,11 @@ import { GetBugComponent } from './get-bug/get-bug.component';
 import { IncertBugComponent } from './incert-bug/incert-bug.component';
 import { DeleteBugComponent } from './delete-bug/delete-bug.component';
 import { UpdateBugComponent } from './update-bug/update-bug.component';
-import { HttpClientModule } from '@angular/common/http';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { NewPageComponent } from './new-page/new-page.component';
+import {HttpClientModule} from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
-  declarations: [GetBugComponent, IncertBugComponent, DeleteBugComponent, UpdateBugComponent, NewPageComponent],
+  declarations: [GetBugComponent, IncertBugComponent, DeleteBugComponent, UpdateBugComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -19,8 +18,7 @@ import { NewPageComponent } from './new-page/new-page.component';
     DeleteBugComponent,
     IncertBugComponent,
     GetBugComponent,
-    UpdateBugComponent,
-    NewPageComponent
+    UpdateBugComponent
   ]
 })
 export class BugReportSystemModule { }
