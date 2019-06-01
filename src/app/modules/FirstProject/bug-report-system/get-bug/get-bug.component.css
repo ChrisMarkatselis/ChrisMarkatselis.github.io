@@ -4,10 +4,50 @@ i {
 }
 
 .iconColor {
-  color: rgba(255, 255, 255, 0.3);
+  color: hsla(352, 95%, 69%, 0.404);
 }
 
-th[colspan="1"]:hover {
+.table-bordered {
+  border-color: #185875;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.container th {
+  font-weight: bold;
+  font-size: 1em;
+  color: #FB667A;
+  border-color: #1F2739;
+  background-color: #1F2739;
   cursor: pointer;
-  background: #454d55;
+}
+
+.container td {
+  font-weight: normal;
+  font-size: 1em;
+  box-shadow: 0 2px 2px -2px #0E1119;
+  border-color: #1F2739;
+  color: #A7A1AE;
+}
+
+.container tr:nth-child(odd) {
+  background-color: #323C50;
+}
+
+.container tr:nth-child(even) {
+  background-color: #2C3446;
+}
+
+.container tr:hover {
+  background-color: #464A52;
+  box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.container td:hover {
+  background-color: #ffb742;
+  color: #1F2739;
+}
+
+#pagination {
+  text-align: right;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }

@@ -12,6 +12,6 @@ import { BugListComponent } from './bug-list/bug-list.component';
   imports: [
     CommonModule
   ],
-  exports: [WrapperComponent]
+  exports: [WrapperComponent, FooterComponent]
 })
 export class AppDesignModule { }
