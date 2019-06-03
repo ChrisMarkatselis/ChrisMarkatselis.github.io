@@ -11,10 +11,10 @@ export class GetBugService {
   constructor(private http: HttpClient) { }
 
   getBugReport(): Observable<Bugs[]> {
-   return this.http.get<Bugs[]>('http://bug-report-system-server.herokuapp.com/bugs');
+    return this.http.get<Bugs[]>('http://bug-report-system-server.herokuapp.com/bugs?size=100');
   }
 
   getBugReportSorted(sortBy, sortingDirection): Observable<Bugs[]> {
-    return this.http.get<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=' + sortBy + ',' + sortingDirection);
+    return this.http.get<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=' + sortBy + ',' + sortingDirection + '&size=100');
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetBugService } from './get-bug.service';
 import { Bugs } from './bug.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-get-bug',
@@ -10,7 +11,7 @@ import { Bugs } from './bug.model';
 export class GetBugComponent implements OnInit {
   private readonly getBugByIdURL = 'https://bug-report-system-server.herokuapp.com/bugs/';
 
-  constructor(private getBug: GetBugService) { }
+  constructor(private getBug: GetBugService, private router: Router) { }
   bugs: Bugs[];
   sortingDirection = 'asc';
   sortByVar: string;
@@ -33,8 +34,7 @@ export class GetBugComponent implements OnInit {
     });
   }
 
-  editBugMethod(id){
-
-    console.log(this.getBugByIdURL + id);
+  editBugMethod(id) {
+    this.router.navigate(['edit', id ]);
   }
 }
