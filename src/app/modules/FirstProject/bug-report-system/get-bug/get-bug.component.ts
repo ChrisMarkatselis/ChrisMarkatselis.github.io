@@ -37,4 +37,7 @@ export class GetBugComponent implements OnInit {
   editBugMethod(id) {
     this.router.navigate(['edit', id ]);
   }
+  insertBug() {
+    this.router.navigate(['update']);
+  }
 }

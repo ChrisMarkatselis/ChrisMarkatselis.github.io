@@ -34,7 +34,7 @@ export class IncertBugComponent implements OnInit {
   ];
 
   constructor(private route: ActivatedRoute, private incertBugService: IncertBugService, private router: Router) {
-    this.savedId = this.route.snapshot.params['id'];
+    this.savedId = this.route.snapshot.params.id;
   }
 
   ngOnInit() {
@@ -58,7 +58,7 @@ export class IncertBugComponent implements OnInit {
     this.selectedStatus = e;
   }
   onSubmit(f: { value: any; valid: any; }) {
-    this.incertBugService.updateBugReport(this.savedId, this.editBug).subscribe((col) => {
+    this.incertBugService.updateBugReport(this.savedId, this.editBug ).subscribe((col) => {
       this.router.navigate(['bugs']);
     });
   }

@@ -1,5 +1,7 @@
 <div class="container text-center">
+  <button (click)="insertBug()">Insert New Bug</button>
   <table class="table table-bordered table-hover">
+
     <!-- <caption class="text-center font-italic">List of bugs</caption> -->
     <thead>
       <tr>
@@ -25,7 +27,7 @@
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'createdAt'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
         <th (click)="sort('status')">Status
-          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'status'"[ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'status'" [ngClass]="'fa fa-sort iconColor'"></i>
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
@@ -33,8 +35,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let bug of bugs | paginate: {itemsPerPage: 10, currentPage: p}; let i = index">
-        <!--<td>{{i}}</td>-->
+      <tr *ngFor="let bug of bugs | paginate: {itemsPerPage: 10, currentPage: p};">
         <td>{{bug.title}}</td>
         <td>{{bug.priority}}</td>
         <td>{{bug.reporter}}</td>

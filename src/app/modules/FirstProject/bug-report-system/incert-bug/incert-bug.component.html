@@ -17,11 +17,13 @@
     <div class="form-group">
       <label for="name">Priority</label><br>
       <!-- (ngModelChange)="editBug.priority=$event" -->
-      <select [ngModel]="selectedPriority" (ngModelChange)="onChangePriority($event)" name="editBug?.priority" class="form-control"
-        required>
-        <option [ngValue]="null">Select</option>
-        <option *ngFor="let i of priorityOptions" [ngValue]="i.key">{{i?.name}}</option>
-      </select>
+      <label>
+        <select [ngModel]="selectedPriority" (ngModelChange)="onChangePriority($event)" name="editBug?.priority" class="form-control"
+          required>
+          <option [ngValue]="null">Select</option>
+          <option *ngFor="let i of priorityOptions" [ngValue]="i.key">{{i?.name}}</option>
+        </select>
+      </label>
     </div>
 
     <div class="form-group">
