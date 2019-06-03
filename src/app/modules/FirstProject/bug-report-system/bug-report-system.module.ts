@@ -7,9 +7,10 @@ import { UpdateBugComponent } from './update-bug/update-bug.component';
 import {HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { PutBugComponent } from './put-bug/put-bug.component';
 
 @NgModule({
-  declarations: [GetBugComponent, IncertBugComponent, DeleteBugComponent, UpdateBugComponent],
+  declarations: [GetBugComponent, IncertBugComponent, DeleteBugComponent, UpdateBugComponent, PutBugComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     DeleteBugComponent,
     IncertBugComponent,
     GetBugComponent,
-    UpdateBugComponent
+    UpdateBugComponent,
+    PutBugComponent
   ]
 })
 export class BugReportSystemModule { }
