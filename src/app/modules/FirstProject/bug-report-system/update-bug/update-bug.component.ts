@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {UpdateBugServiceService} from './update-bug-service.service';
-import {Bugs} from '../get-bug/bug.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UpdateBugServiceService } from './update-bug-service.service';
+import { Bugs } from '../get-bug/bug.model';
 
 @Component({
   selector: 'app-update-bug',
@@ -15,10 +15,10 @@ export class UpdateBugComponent implements OnInit {
   selectedReporter = null;
 
   priorityOptions = [
-  { key: 1, priority: 'Critical' },
-  { key: 2, priority: 'Major' },
-  { key: 3, priority: 'Minor' }
-];
+    { key: 1, priority: 'Critical' },
+    { key: 2, priority: 'Major' },
+    { key: 3, priority: 'Minor' }
+  ];
 
   reporterOptions = [
     { key: 'QA', reporter: 'QA' },
@@ -27,9 +27,9 @@ export class UpdateBugComponent implements OnInit {
   ];
 
   statusOptions = [
-    { key: 'Ready for test', status: 'Ready for test' },
-    { key: 'Done', status: 'Done' },
-    { key: 'Rejected', status: 'Rejected' }
+    { key: 'Ready for test', statuss: 'Ready for test' },
+    { key: 'Done', statuss: 'Done' },
+    { key: 'Rejected', statuss: 'Rejected' }
   ];
 
   constructor(private route: ActivatedRoute, private router: Router, private updateBugService: UpdateBugServiceService) { }
@@ -37,17 +37,18 @@ export class UpdateBugComponent implements OnInit {
   ngOnInit() {
   }
   onUpdate(updateform) {
-   const date = new Date();
-   const newBug: Bugs = {
+    const date = new Date();
+    const newBug: Bugs = {
       title: updateform.title,
       description: updateform.description,
       priority: updateform.priority,
       reporter: updateform.reporter,
-      status: updateform.status,
+      status: updateform.statuss,
       createdAt: date.toString()
     };
-   console.log(newBug);
-   this.updateBugService.createBugReport(newBug);
+    console.log(newBug);
+    this.updateBugService.createBugReport(newBug);
+    this.router.navigate(['bugs']);
   }
   // this.updateBugServise.createBugReport(newBug);
   // this.router.navigate(['bugs']);

@@ -10,7 +10,7 @@ import { Bugs } from '../get-bug/bug.model';
 })
 export class IncertBugComponent implements OnInit {
   savedId: any;
-  editBug: Bugs[];
+  editBug;
   selectedPriority = null;
   selectedReporter = null;
   selectedStatus = null;
@@ -43,6 +43,7 @@ export class IncertBugComponent implements OnInit {
       this.selectedPriority = col.priority;
       this.selectedReporter = col.reporter;
       this.selectedStatus = col.status;
+      console.log(col);
     });
   }
   onChangePriority(e) {
