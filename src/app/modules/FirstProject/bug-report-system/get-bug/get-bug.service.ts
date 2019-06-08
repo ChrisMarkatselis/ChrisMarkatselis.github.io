@@ -17,4 +17,7 @@ export class GetBugService {
   getBugReportSorted(sortBy, sortingDirection): Observable<Bugs[]> {
     return this.http.get<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=' + sortBy + ',' + sortingDirection + '&size=100');
   }
+  // getBugByFilter(): Observable<Bugs[]> {
+  //   return this.http.get<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs?title=bug&priority=1&reporter=QA&status=Done');
+  // }
 }

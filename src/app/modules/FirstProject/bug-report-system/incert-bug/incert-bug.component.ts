@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { IncertBugService } from './incert-bug.service';
-import { Bugs } from '../get-bug/bug.model';
+import { Bugs, BugComment } from '../get-bug/bug.model';
 
 @Component({
   selector: 'app-incert-bug',
@@ -10,7 +10,19 @@ import { Bugs } from '../get-bug/bug.model';
 })
 export class IncertBugComponent implements OnInit {
   savedId: any;
-  editBug;
+  editBug: Bugs = {
+    title: '',
+    description: '',
+    priority: null,
+    reporter: '',
+    status: '',
+    comments: []
+
+  };
+  newComment: BugComment =  {
+    reporter: '',
+    description: ''
+  };
   selectedPriority = null;
   selectedReporter = null;
   selectedStatus = null;
@@ -33,16 +45,17 @@ export class IncertBugComponent implements OnInit {
     { key: 'Rejected', name: 'Rejected' },
   ];
 
-  constructor(private route: ActivatedRoute, private incertBugService: IncertBugService, private router: Router) {
+  constructor(private route: ActivatedRoute, private  incertBugService: IncertBugService, private router: Router) {
     this.savedId = this.route.snapshot.params.id;
   }
 
   ngOnInit() {
-    this.incertBugService.getBugReport(this.savedId).subscribe((col) => {
+    this.incertBugService.getBugReport(this.savedId ).subscribe((col: Bugs) => {
       this.editBug = col;
       this.selectedPriority = col.priority;
       this.selectedReporter = col.reporter;
       this.selectedStatus = col.status;
+      // this.editBug.comments?.[{ description?: string; reporter?: string; }];
       console.log(col);
     });
   }
@@ -62,5 +75,16 @@ export class IncertBugComponent implements OnInit {
     this.incertBugService.updateBugReport(this.savedId, this.editBug ).subscribe((col) => {
       this.router.navigate(['bugs']);
     });
+  }
+
+  onCommentSubmit(commentForm: { value: any; valid: any; }) {
+    this.editBug.comments.push(commentForm.value);
+    console.log(this.editBug);
+
+    this.incertBugService.updateBugReport(this.savedId, this.editBug );
+    // this.editBug.comments.push(this.newComment)
+    // this.incertBugService.updateBugReport(this.savedId, this.editBug ).subscribe((col) => {
+    //   this.router.navigate(['bugs']);
+    // });
   }
 }

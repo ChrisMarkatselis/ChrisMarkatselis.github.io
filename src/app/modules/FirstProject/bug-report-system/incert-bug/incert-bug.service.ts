@@ -10,14 +10,15 @@ export class IncertBugService {
 
   constructor(private http: HttpClient) { }
 
-  getBugReport(col): Observable<Bugs[]> {
-    return this.http.get<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs/' + col);
+  getBugReport(col): Observable<Bugs> {
+    return this.http.get<Bugs>('https://bug-report-system-server.herokuapp.com/bugs/' + col);
   }
 
-  updateBugReport(savedId, editBug: Bugs): Observable<Bugs[]> {
+  updateBugReport(savedId, editBug: Bugs): Observable<Bugs> {
     console.log(editBug);
-    return this.http.put<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs/' + savedId, editBug);
+    return this.http.put<Bugs>('https://bug-report-system-server.herokuapp.com/bugs/' + savedId, editBug);
   }
+
 
   // postBugReport(savedId, editBug: Bugs): Observable<Bugs[]> {
   //   console.log(editBug);

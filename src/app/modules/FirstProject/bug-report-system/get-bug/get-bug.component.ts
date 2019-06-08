@@ -40,4 +40,9 @@ export class GetBugComponent implements OnInit {
   insertBug() {
     this.router.navigate(['update']);
   }
+  // searchBug(data: SearchBug) {
+  //   this.SearchBug = data;
+  //   this.fetchData();
+  // }
+
 }
