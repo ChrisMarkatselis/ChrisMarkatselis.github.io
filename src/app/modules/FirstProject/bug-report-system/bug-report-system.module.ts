@@ -8,10 +8,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { PutBugComponent } from './put-bug/put-bug.component';
-import { SearchBugComponent } from './search-bug/search-bug.component';
 
 @NgModule({
-  declarations: [GetBugComponent, IncertBugComponent, DeleteBugComponent, UpdateBugComponent, PutBugComponent, SearchBugComponent],
+  declarations: [GetBugComponent, IncertBugComponent, DeleteBugComponent, UpdateBugComponent, PutBugComponent],
   imports: [
     CommonModule,
     HttpClientModule,

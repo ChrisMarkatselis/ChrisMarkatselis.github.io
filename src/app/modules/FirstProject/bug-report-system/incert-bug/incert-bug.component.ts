@@ -78,13 +78,11 @@ export class IncertBugComponent implements OnInit {
   }
 
   onCommentSubmit(commentForm: { value: any; valid: any; }) {
+    this.editBug.comments = this.editBug.comments || [];
     this.editBug.comments.push(commentForm.value);
     console.log(this.editBug);
 
     this.incertBugService.updateBugReport(this.savedId, this.editBug );
-    // this.editBug.comments.push(this.newComment)
-    // this.incertBugService.updateBugReport(this.savedId, this.editBug ).subscribe((col) => {
-    //   this.router.navigate(['bugs']);
-    // });
+
   }
 }
