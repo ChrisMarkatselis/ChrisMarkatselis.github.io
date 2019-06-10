@@ -80,8 +80,6 @@ export class EditBugComponent implements OnInit {
   onCommentSubmit(commentForm: { value: any; valid: any; }) {
     this.editBug.comments = this.editBug.comments || [] ;
     this.editBug.comments.push(commentForm.value);
-    console.log(this.editBug);
-
     this.editBugService.updateBugReport(this.savedId, this.editBug ).subscribe( (col) => {
       this.router.navigate(['bugs']);
     });

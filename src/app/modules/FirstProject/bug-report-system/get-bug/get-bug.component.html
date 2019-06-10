@@ -1,33 +1,37 @@
 <div class="container text-center">
   <button (click)="insertBug()" class="editButtonId">Insert New Bug</button>
   <table class="table table-bordered table-hover">
-
     <!-- <caption class="text-center font-italic">List of bugs</caption> -->
     <thead>
       <tr>
         <!--<th (click)="sort('index')">Index<i [ngClass]="'fa fa-sort'" style="float:right"></i> </th>-->
         <th (click)="sort('title')">Title
-          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'title'" [ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'title'"
+            [ngClass]="'fa fa-sort iconColor'"></i>
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'title'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'title'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
         <th (click)="sort('priority')">Priority
-          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'priority'" [ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'priority'"
+            [ngClass]="'fa fa-sort iconColor'"></i>
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'priority'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'priority'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
         <th (click)="sort('reporter')">Reporter
-          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'reporter'" [ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'reporter'"
+            [ngClass]="'fa fa-sort iconColor'"></i>
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'reporter'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'reporter'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
         <th (click)="sort('createdAt')">Date Created
-         <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'createdAt'" [ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'createdAt'"
+            [ngClass]="'fa fa-sort iconColor'"></i>
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'createdAt'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'createdAt'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
         <th (click)="sort('status')">Status
-          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'status'" [ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'status'"
+            [ngClass]="'fa fa-sort iconColor'"></i>
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
@@ -35,17 +39,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let bug of bugs | paginate: {itemsPerPage: 10, currentPage: p};">
+      <tr *ngFor="let bug of bugs">
         <td>{{bug.title}}</td>
         <td>{{bug.priority}}</td>
         <td>{{bug.reporter}}</td>
         <td>{{bug.createdAt}}</td>
         <td>{{bug.status}}</td>
-        <td><button class="editButtonId" value="editBugMethod" (click)="editBugMethod(bug.id)">Edit</button></td>
+        <td><button id="editButtonId" value="editBugMethod" (click)="editBugMethod(bug.id)">Edit</button></td>
       </tr>
     </tbody>
   </table>
   <div id="pagination">
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <button id="previousPageButton" (click)="previousPage()">Previous</button>
+    <div style="color:beige; display: inline-block; margin: 0 1rem">{{page + 1}}</div>
+    <button id="nextPageButton" (click)="nextPage()">Next</button>
   </div>
 </div>

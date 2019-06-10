@@ -1,69 +1,59 @@
 <div class="container" style="background-color:beige; margin-bottom: 50px;">
   <h1>Edit Mode</h1>
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-
     <div class="form-group">
-      <label for="name">Title</label>
-      <input name="title" [(ngModel)]="editBug.title" type="text" class="form-control" id="name" required>
+      <label for="title">Title</label>
+      <input id="title" name="title" [(ngModel)]="editBug.title" type="text" class="form-control" required>
     </div>
-
     <div class="form-group">
-      <label for="name">Description</label>
-      <input name="description" [(ngModel)]="editBug.description" type="text" class="form-control" id="name" required>
+      <label for="description">Description</label>
+      <input id="description" name="description" [(ngModel)]="editBug.description" type="text" class="form-control"
+        required>
     </div>
-
     <div class="form-group">
-      <label for="name">Priority</label><br>
+      <label for="priority">Priority</label><br>
       <!-- (ngModelChange)="editBug.priority=$event" -->
-      <select [ngModel]="selectedPriority" (ngModelChange)="onChangePriority($event)" name="priority"
+      <select id="priority" name="priority" [ngModel]="selectedPriority" (ngModelChange)="onChangePriority($event)"
         class="form-control" required>
         <option *ngFor="let i of priorityOptions" [ngValue]="i.key">{{i?.name}}</option>
       </select>
     </div>
-
     <div class="form-group">
-      <label for="name">Reporter</label><br>
-      <!-- (ngModelChange)="editBug.reporter=$event" -->
-      <select [ngModel]="selectedReporter" (ngModelChange)="onChangeReporter($event)" name="reporter"
+      <label for="reporter">Reporter</label><br>
+      <select id="reporter" name="reporter" [ngModel]="selectedReporter" (ngModelChange)="onChangeReporter($event)"
         class="form-control" required>
         <option *ngFor="let i of reporterOptions" [ngValue]="i.key">{{i.name}}</option>
       </select>
     </div>
-
     <div class="form-group">
-      <label for="name">Status</label><br>
-      <!-- (ngModelChange)="editBug.status=$event" -->
-      <select [ngModel]="selectedStatus" (ngModelChange)="onChangeStatus($event)" name="status" class="form-control"
-        required>
+      <label for="status">Status</label><br>
+      <select id="status" name="status" [ngModel]="selectedStatus" (ngModelChange)="onChangeStatus($event)"
+        class="form-control" required>
         <option *ngFor="let i of statusOptions" [ngValue]="i.key">{{i.name}}</option>
       </select>
     </div>
-
     <ul>
       <li *ngFor="let comment of editBug.comments">
-        Comments reporter: {{comment.reporter}}<br>
-        Comments description: {{comment.description}}<br>
+        Reporter of the comment: {{comment.reporter}}<br>
+        Description of the comment: {{comment.description}}<br>
       </li>
     </ul>
-
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
   <br>
-
 </div>
 
 <div class="container" style="background-color:beige; margin-bottom: 50px;">
   <form #commentForm="ngForm" (ngSubmit)="onCommentSubmit(commentForm)">
     <div class="form-group">
-      <label for="reporter">Reporter</label>
-      <input name="reporter" [(ngModel)]="newComment.reporter" type="text" class="form-control" id="reporter"
-        required>
+      <label for="commentReporter">Reporter</label>
+      <input id="commentReporter" name="commentReporter" [(ngModel)]="newComment.reporter" type="text"
+        class="form-control" required>
     </div>
-
-
     <div class="form-group">
-      <label for="description">Description</label><br>
-      <textarea name="description" [(ngModel)]="newComment.description" class="form-control" rows="3"></textarea>
+      <label for="commentDescription">Description</label><br>
+      <textarea id="commentDescription" name="commentDescription" [(ngModel)]="newComment.description"
+        class="form-control" rows="3"></textarea>
     </div>
     <button type="submit" class="btn btn-success">Submit Comment</button>
   </form>

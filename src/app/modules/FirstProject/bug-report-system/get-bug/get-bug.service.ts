@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Bugs} from './bug.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Bugs } from './bug.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +12,12 @@ export class GetBugService {
 
   private readonly endpoint = 'http://bug-report-system-server.herokuapp.com/bugs';
 
-  getBugReport(): Observable<Bugs[]> {
-    return this.http.get<Bugs[]>(this.endpoint);
+  getBugReport(page): Observable<Bugs[]> {
+    return this.http.get<Bugs[]>(this.endpoint + '?&page=' + page);
   }
 
-  getBugReportSorted(sortBy, sortingDirection): Observable<Bugs[]> {
-    return this.http.get<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=' + sortBy + ',' + sortingDirection);
+  getBugReportSorted(sortBy, sortingDirection, page): Observable<Bugs[]> {
+    return this.http.get<Bugs[]>(this.endpoint + '?sort=' + sortBy + ',' + sortingDirection + '&page=' + page);
   }
 
 }

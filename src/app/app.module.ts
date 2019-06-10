@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {BugReportSystemModule} from './modules/FirstProject/bug-report-system/bug-report-system.module';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { BugReportSystemModule } from './modules/FirstProject/bug-report-system/bug-report-system.module';
+
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -14,12 +13,12 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BugReportSystemModule,
-    NgxPaginationModule,
-    FormsModule
-
+    FormsModule,
+    BugReportSystemModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
