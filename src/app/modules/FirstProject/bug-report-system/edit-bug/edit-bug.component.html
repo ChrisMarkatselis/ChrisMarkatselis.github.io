@@ -1,17 +1,18 @@
 <div class="container" style="background-color:beige; margin-bottom: 50px;">
-  <h1>Edit Mode</h1>
+  <br>
+  <h2>Edit the bug you choose</h2>
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="form-group">
-      <label for="title">Title</label>
+      <label for="title">Place your title:</label>
       <input id="title" name="title" [(ngModel)]="editBug.title" type="text" class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="description">Description</label>
+      <label for="description">PLace your description:</label>
       <input id="description" name="description" [(ngModel)]="editBug.description" type="text" class="form-control"
         required>
     </div>
     <div class="form-group">
-      <label for="priority">Priority</label><br>
+      <label for="priority">Choose the priority:</label><br>
       <!-- (ngModelChange)="editBug.priority=$event" -->
       <select id="priority" name="priority" [ngModel]="selectedPriority" (ngModelChange)="onChangePriority($event)"
         class="form-control" required>
@@ -19,14 +20,14 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="reporter">Reporter</label><br>
+      <label for="reporter">Choose the reporter department:</label><br>
       <select id="reporter" name="reporter" [ngModel]="selectedReporter" (ngModelChange)="onChangeReporter($event)"
         class="form-control" required>
         <option *ngFor="let i of reporterOptions" [ngValue]="i.key">{{i.name}}</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="status">Status</label><br>
+      <label for="status">Chooce the status:</label><br>
       <select id="status" name="status" [ngModel]="selectedStatus" (ngModelChange)="onChangeStatus($event)"
         class="form-control" required>
         <option *ngFor="let i of statusOptions" [ngValue]="i.key">{{i.name}}</option>
@@ -44,14 +45,16 @@
 </div>
 
 <div class="container" style="background-color:beige; margin-bottom: 50px;">
+  <br>
+  <h2>Leave your comment</h2>
   <form #commentForm="ngForm" (ngSubmit)="onCommentSubmit(commentForm)">
     <div class="form-group">
-      <label for="commentReporter">Reporter</label>
+      <label for="commentReporter">Who is the reporter:</label>
       <input id="commentReporter" name="commentReporter" [(ngModel)]="newComment.reporter" type="text"
         class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="commentDescription">Description</label><br>
+      <label for="commentDescription">What is the description:</label><br>
       <textarea id="commentDescription" name="commentDescription" [(ngModel)]="newComment.description"
         class="form-control" rows="3"></textarea>
     </div>
