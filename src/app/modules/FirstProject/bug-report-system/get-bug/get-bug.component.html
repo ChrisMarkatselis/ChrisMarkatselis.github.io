@@ -45,13 +45,13 @@
         <td>{{bug.reporter}}</td>
         <td>{{bug.createdAt}}</td>
         <td>{{bug.status}}</td>
-        <td><button id="editButtonId" value="editBugMethod" (click)="editBugMethod(bug.id)">Edit</button></td>
+        <td><button class="editButtonId" value="editBugMethod" (click)="editBugMethod(bug.id)">Edit</button></td>
       </tr>
     </tbody>
   </table>
   <div id="pagination">
-    <button id="previousPageButton" (click)="previousPage()">Previous</button>
+    <button id="previousPageButton" class="editButtonId" (click)="previousPage()">Previous</button>
     <div style="color:beige; display: inline-block; margin: 0 1rem">{{page + 1}}</div>
-    <button id="nextPageButton" (click)="nextPage()">Next</button>
+    <button id="nextPageButton" class="editButtonId" (click)="nextPage()">Next</button>
   </div>
 </div>
