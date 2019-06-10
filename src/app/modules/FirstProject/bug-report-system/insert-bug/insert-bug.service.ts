@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Bugs} from '../get-bug/bug.model';
+import { HttpClient } from '@angular/common/http';
+import { Bugs } from '../get-bug/bug.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UpdateBugServiceService {
+export class InsertBugService {
 
   private readonly endpoint = 'https://bug-report-system-server.herokuapp.com/bugs';
 

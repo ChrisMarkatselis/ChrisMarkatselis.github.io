@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UpdateBugServiceService } from './update-bug-service.service';
 import { Bugs } from '../get-bug/bug.model';
+import { InsertBugService } from './insert-bug.service';
 
 @Component({
-  selector: 'app-update-bug',
-  templateUrl: './update-bug.component.html',
-  styleUrls: ['./update-bug.component.css']
+  selector: 'app-insert-bug',
+  templateUrl: './insert-bug.component.html',
+  styleUrls: ['./insert-bug.component.css']
 })
-export class UpdateBugComponent implements OnInit {
+export class InsertBugComponent implements OnInit {
 
   selectedPriority = null;
   selectedStatus = null;
@@ -32,7 +32,7 @@ export class UpdateBugComponent implements OnInit {
     { key: 'Rejected', statuss: 'Rejected' }
   ];
 
-  constructor(private route: ActivatedRoute, private router: Router, private updateBugService: UpdateBugServiceService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private insertBugService: InsertBugService) { }
 
   ngOnInit() {
   }
@@ -47,13 +47,7 @@ export class UpdateBugComponent implements OnInit {
       createdAt: date.toString()
     };
     console.log(newBug);
-    this.updateBugService.createBugReport(newBug);
+    this.insertBugService.createBugReport(newBug);
     this.router.navigate(['bugs']);
   }
-  // this.updateBugServise.createBugReport(newBug);
-  // this.router.navigate(['bugs']);
-  //  this.updateBugService.createBugReport(this.newBug).subscribe(x => this.value);
-  //  console.log(updateform.value);
-  //  this.newBug = this.value;
-  //  console.log(this.newBug);
 }

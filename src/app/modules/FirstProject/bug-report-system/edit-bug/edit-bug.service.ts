@@ -6,7 +6,7 @@ import { Bugs } from '../get-bug/bug.model';
 @Injectable({
   providedIn: 'root'
 })
-export class IncertBugService {
+export class EditBugService {
 
   constructor(private http: HttpClient) { }
 
@@ -19,9 +19,4 @@ export class IncertBugService {
     return this.http.put<Bugs>('https://bug-report-system-server.herokuapp.com/bugs/' + savedId, editBug);
   }
 
-
-  // postBugReport(savedId, editBug: Bugs): Observable<Bugs[]> {
-  //   console.log(editBug);
-  //   return this.http.put<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs/' + savedId, editBug);
-  // }
 }

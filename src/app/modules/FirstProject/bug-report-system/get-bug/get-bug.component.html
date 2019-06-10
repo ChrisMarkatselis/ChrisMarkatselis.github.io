@@ -1,5 +1,5 @@
 <div class="container text-center">
-  <button (click)="insertBug()">Insert New Bug</button>
+  <button (click)="insertBug()" class="editButtonId">Insert New Bug</button>
   <table class="table table-bordered table-hover">
 
     <!-- <caption class="text-center font-italic">List of bugs</caption> -->
@@ -41,7 +41,7 @@
         <td>{{bug.reporter}}</td>
         <td>{{bug.createdAt}}</td>
         <td>{{bug.status}}</td>
-        <td><button id="editButtonId" value="editBugMethod" (click)="editBugMethod(bug.id)">Edit</button></td>
+        <td><button class="editButtonId" value="editBugMethod" (click)="editBugMethod(bug.id)">Edit</button></td>
       </tr>
     </tbody>
   </table>
@@ -49,21 +49,3 @@
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>
-
-<!--<ul>-->
-<!--<li *ngFor="let bug of bugs">-->
-<!--id: {{bug.id}}<br>-->
-<!--title: {{bug.title}}<br>-->
-<!--priority: {{bug.priority}}<br>-->
-<!--reporter: {{bug.reporter}}<br>-->
-<!--status: {{bug.status}}<br>-->
-<!--createdAt: {{bug.createdAt}}<br>-->
-<!-- <ul>
-<li *ngFor="let comment of bug.comments">
-Comments _id: {{comment._id}}<br>
-Comments reporter: {{comment.reporter}}<br>
-Comments description: {{comment.description}}<br>
-</li>
-</ul> -->
-<!--</li>-->
-<!--</ul>-->

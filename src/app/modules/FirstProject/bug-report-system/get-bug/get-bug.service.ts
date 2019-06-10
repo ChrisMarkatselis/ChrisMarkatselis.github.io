@@ -10,14 +10,14 @@ export class GetBugService {
 
   constructor(private http: HttpClient) { }
 
+  private readonly endpoint = 'http://bug-report-system-server.herokuapp.com/bugs';
+
   getBugReport(): Observable<Bugs[]> {
-    return this.http.get<Bugs[]>('http://bug-report-system-server.herokuapp.com/bugs?size=100');
+    return this.http.get<Bugs[]>(this.endpoint);
   }
 
   getBugReportSorted(sortBy, sortingDirection): Observable<Bugs[]> {
-    return this.http.get<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=' + sortBy + ',' + sortingDirection + '&size=100');
+    return this.http.get<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs?sort=' + sortBy + ',' + sortingDirection);
   }
-  // getBugByFilter(): Observable<Bugs[]> {
-  //   return this.http.get<Bugs[]>('https://bug-report-system-server.herokuapp.com/bugs?title=bug&priority=1&reporter=QA&status=Done');
-  // }
+
 }

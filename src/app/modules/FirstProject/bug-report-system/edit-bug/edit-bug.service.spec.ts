@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PutBugService } from './put-bug.service';
+import { EditBugService } from './edit-bug.service';
 
-describe('PutBugService', () => {
+describe('EditBugService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PutBugService = TestBed.get(PutBugService);
+    const service: EditBugService = TestBed.get(EditBugService);
     expect(service).toBeTruthy();
   });
 });

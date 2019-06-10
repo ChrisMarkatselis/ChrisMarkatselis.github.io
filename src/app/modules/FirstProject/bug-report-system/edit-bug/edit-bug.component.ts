@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { IncertBugService } from './incert-bug.service';
+import { EditBugService } from './edit-bug.service';
 import { Bugs, BugComment } from '../get-bug/bug.model';
 
 @Component({
-  selector: 'app-incert-bug',
-  templateUrl: './incert-bug.component.html',
-  styleUrls: ['./incert-bug.component.css']
+  selector: 'app-edit-bug',
+  templateUrl: './edit-bug.component.html',
+  styleUrls: ['./edit-bug.component.css']
 })
-export class IncertBugComponent implements OnInit {
+export class EditBugComponent implements OnInit {
   savedId: any;
   editBug: Bugs = {
     title: '',
@@ -45,12 +45,12 @@ export class IncertBugComponent implements OnInit {
     { key: 'Rejected', name: 'Rejected' },
   ];
 
-  constructor(private route: ActivatedRoute, private  incertBugService: IncertBugService, private router: Router) {
+  constructor(private route: ActivatedRoute, private  editBugService: EditBugService, private router: Router) {
     this.savedId = this.route.snapshot.params.id;
   }
 
   ngOnInit() {
-    this.incertBugService.getBugReport(this.savedId ).subscribe((col: Bugs) => {
+    this.editBugService.getBugReport(this.savedId ).subscribe((col: Bugs) => {
       this.editBug = col;
       this.selectedPriority = col.priority;
       this.selectedReporter = col.reporter;
@@ -72,17 +72,19 @@ export class IncertBugComponent implements OnInit {
     this.selectedStatus = e;
   }
   onSubmit(f: { value: any; valid: any; }) {
-    this.incertBugService.updateBugReport(this.savedId, this.editBug ).subscribe((col) => {
+    this.editBugService.updateBugReport(this.savedId, this.editBug ).subscribe((col) => {
       this.router.navigate(['bugs']);
     });
   }
 
   onCommentSubmit(commentForm: { value: any; valid: any; }) {
-    this.editBug.comments = this.editBug.comments || [];
+    this.editBug.comments = this.editBug.comments || [] ;
     this.editBug.comments.push(commentForm.value);
     console.log(this.editBug);
 
-    this.incertBugService.updateBugReport(this.savedId, this.editBug );
+    this.editBugService.updateBugReport(this.savedId, this.editBug ).subscribe( (col) => {
+      this.router.navigate(['bugs']);
+    });
 
   }
 }

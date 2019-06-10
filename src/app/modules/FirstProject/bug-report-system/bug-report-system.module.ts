@@ -1,28 +1,41 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GetBugComponent } from './get-bug/get-bug.component';
-import { IncertBugComponent } from './incert-bug/incert-bug.component';
+import { EditBugComponent } from './edit-bug/edit-bug.component';
 import { DeleteBugComponent } from './delete-bug/delete-bug.component';
-import { UpdateBugComponent } from './update-bug/update-bug.component';
-import {HttpClientModule} from '@angular/common/http';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { InsertBugComponent } from './insert-bug/insert-bug.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { PutBugComponent } from './put-bug/put-bug.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [GetBugComponent, IncertBugComponent, DeleteBugComponent, UpdateBugComponent, PutBugComponent],
+  declarations: [
+    GetBugComponent,
+    EditBugComponent,
+    DeleteBugComponent,
+    InsertBugComponent,
+    PutBugComponent,
+    HeaderComponent,
+    FooterComponent],
+
   imports: [
     CommonModule,
     HttpClientModule,
     NgxPaginationModule,
     FormsModule
   ],
+
   exports: [
     DeleteBugComponent,
-    IncertBugComponent,
+    EditBugComponent,
     GetBugComponent,
-    UpdateBugComponent,
-    PutBugComponent
+    InsertBugComponent,
+    PutBugComponent,
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class BugReportSystemModule { }

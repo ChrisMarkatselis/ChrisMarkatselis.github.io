@@ -15,7 +15,7 @@ export class GetBugComponent implements OnInit {
   bugs: Bugs[];
   sortingDirection = 'asc';
   sortByVar: string;
-  p = 1;
+  page = 0;
 
   ngOnInit() {
     this.getBug.getBugReport().subscribe((data) => {
@@ -40,9 +40,17 @@ export class GetBugComponent implements OnInit {
   insertBug() {
     this.router.navigate(['update']);
   }
-  // searchBug(data: SearchBug) {
-  //   this.SearchBug = data;
-  //   this.fetchData();
-  // }
+  previousPage() {
+    if (this.page <= 0) {
+      return;
+    }
+    this.page--;
+    // this.fetchData();
+  }
+
+  nextPage() {
+    this.page++;
+    // this.fetchData();
+  }
 
 }
