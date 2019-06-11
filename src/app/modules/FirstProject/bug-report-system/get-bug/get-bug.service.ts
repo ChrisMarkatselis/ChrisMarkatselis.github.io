@@ -20,4 +20,5 @@ export class GetBugService {
     return this.http.get<Bugs[]>(this.endpoint + '?sort=' + sortBy + ',' + sortingDirection + '&page=' + page);
   }
 
+  
 }

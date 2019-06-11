@@ -1,0 +1,10 @@
+<form #searchBar="ngForm" (ngSubmit)="onSearch(searchBar)">
+<div class="container">
+    <div class="row" id="searchBar">
+      <input class="col-sm" placeholder="Search by title" id="title" [(ngModel)]="searchBar.title" type="text" autocomplete="off">
+      <input class="col-sm" placeholder="Search by priority" id="priority" [(ngModel)]="searchBar.priority" type="text" autocomplete="off">
+      <input class="col-sm" placeholder="Search by reporter" id="reporter" [(ngModel)]="searchBar.reporter" type="text" autocomplete="off">
+      <input class="col-sm" placeholder="Search by status" id="status" [(ngModel)]="searchBar.status" type="text" autocomplete="off">
+      <button type="submit" class="searchButtonId">Search</button>
+    </div>
+  </div>
