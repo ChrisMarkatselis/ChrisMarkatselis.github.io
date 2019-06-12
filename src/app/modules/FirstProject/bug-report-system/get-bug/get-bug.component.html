@@ -1,7 +1,7 @@
 <div class="container text-center">
 
   <app-search-bar></app-search-bar>
-  
+
   <button (click)="insertBug()" class="editButtonId">Insert New Bug</button>
   <table class="table table-bordered table-hover">
     <!-- <caption class="text-center font-italic">List of bugs</caption> -->
@@ -38,7 +38,8 @@
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
-        <th> Edit </th>
+        <th>  </th>
+        <th>  </th>
       </tr>
     </thead>
     <tbody>
@@ -49,6 +50,7 @@
         <td>{{bug.createdAt}}</td>
         <td>{{bug.status}}</td>
         <td><button class="editButtonId" value="editBugMethod" (click)="editBugMethod(bug.id)">Edit</button></td>
+        <td><button class="editButtonId" value="deleteBugMethod" (click)="deleteBugMethod(bug.id)">Delete</button></td>
       </tr>
     </tbody>
   </table>

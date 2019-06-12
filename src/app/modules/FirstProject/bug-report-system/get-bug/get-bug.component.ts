@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetBugService } from './get-bug.service';
 import { Bugs } from './bug.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-get-bug',
@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./get-bug.component.css']
 })
 export class GetBugComponent implements OnInit {
-  private readonly getBugByIdURL = 'https://bug-report-system-server.herokuapp.com/bugs/';
+  savedId: any;
 
-  constructor(private getBugService: GetBugService, private router: Router) { }
+  constructor(private getBugService: GetBugService, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.savedId = this.activatedRoute.snapshot.params.id;
+  }
+
   bugs: Bugs[];
   sortingDirection = 'asc';
   sortByVar: string;
@@ -97,4 +100,16 @@ export class GetBugComponent implements OnInit {
     this.router.navigate(['update']);
   }
 
+  deleteBugMethod(id) {
+    for (let i = 0; i < this.bugs.length; ++i) {
+      if (this.bugs[i].id === id) {
+        this.bugs.splice(i, 1);
+      }
+    }
+    this.getBugService.deleteBug(id).subscribe((data) => {
+      // window.location.reload();
+    });
+
+
+  }
 }
