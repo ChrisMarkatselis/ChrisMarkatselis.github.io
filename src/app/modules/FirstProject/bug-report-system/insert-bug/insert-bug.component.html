@@ -1,18 +1,18 @@
 <div class="container text-center" style="background-color: aliceblue">
   <h1>Insert A New Bug</h1>
-  <form #updateform="ngForm" (ngSubmit)="onUpdate(updateform)">
+  <form #insertform="ngForm" (ngSubmit)="onUpdate(insertform)">
     <div class="form-group">
       <label for="title">Title</label>
-      <input name="newBug.title" id="title" required [(ngModel)]="updateform.title" type="text" class="form-control">
+      <input name="title" id="title" required [(ngModel)]="insertform.title" type="text" class="form-control">
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <input name="newBug.description" id="description" required [(ngModel)]="updateform.description" type="text"
+      <input name="description" id="description" required [(ngModel)]="insertform.description" type="text"
         class="form-control">
     </div>
     <div class="form-group">
       <label>Priority</label>
-      <select name="newBug.priority" [ngModel]="updateform.priority" (ngModelChange)="updateform.priority=$event"
+      <select name="priority" [ngModel]="insertform.priority" (ngModelChange)="insertform.priority=$event"
         class="form-control" required>
         <!-- <option value="null" disabled="true" [selected]="true" style="display: none">Select</option> -->
         <option [ngValue]="Select" disabled="true" [selected]="true" style="display: none">Select</option>
@@ -22,7 +22,7 @@
 
     <div class="form-group">
       <label>Reporter</label>
-      <select name="newBug.reporter" [ngModel]="updateform.reporter" (ngModelChange)="updateform.reporter=$event"
+      <select name="reporter" [ngModel]="insertform.reporter" (ngModelChange)="insertform.reporter=$event"
         class="form-control" required>
         <!-- <option value="null" disabled="true" [selected]="true" style="display: none">Select</option> -->
         <option [ngValue]="Select" disabled="true" [selected]="true" style="display: none">Select</option>
@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
       <label>Status</label>
-      <select name="newBug.statuss" [ngModel]="updateform.statuss" (ngModelChange)="updateform.statuss=$event"
+      <select name="statuss" [ngModel]="insertform.statuss" (ngModelChange)="insertform.statuss=$event"
         class="form-control" required>
         <!--<option class="dropdown-placeholder" value="-1" >Select</option>-->
         <!-- <option value="null" disabled="true" [selected]="true" style="display: none">Select</option> -->

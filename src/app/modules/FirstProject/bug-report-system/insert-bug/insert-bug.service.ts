@@ -14,6 +14,7 @@ export class InsertBugService {
   createBugReport(newBug: Bugs) {
     this.http.post(this.endpoint, newBug).subscribe(responseData => {
       console.log(responseData);
+      window.location.reload();
     });
   }
 }

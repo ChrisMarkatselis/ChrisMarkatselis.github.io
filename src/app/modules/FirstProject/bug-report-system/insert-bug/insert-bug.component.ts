@@ -10,6 +10,16 @@ import { InsertBugService } from './insert-bug.service';
 })
 export class InsertBugComponent implements OnInit {
 
+  date = new Date();
+  newBug: Bugs = {
+    title: '',
+    description: '',
+    priority: null,
+    reporter: '',
+    status: '',
+    createdAt: this.date.toString()
+  };
+
   selectedPriority = null;
   selectedStatus = null;
   selectedReporter = null;
@@ -36,18 +46,14 @@ export class InsertBugComponent implements OnInit {
 
   ngOnInit() {
   }
-  onUpdate(updateform) {
-    const date = new Date();
-    const newBug: Bugs = {
-      title: updateform.title,
-      description: updateform.description,
-      priority: updateform.priority,
-      reporter: updateform.reporter,
-      status: updateform.statuss,
-      createdAt: date.toString()
-    };
-    console.log(newBug);
-    this.insertBugService.createBugReport(newBug);
+  onUpdate(insertform) {
+    this.newBug.title = insertform.title;
+    this.newBug.description = insertform.description;
+    this.newBug.priority = insertform.priority;
+    this.newBug.reporter = insertform.reporter;
+    this.newBug.status = insertform.statuss;
+    console.log(this.newBug);
+    this.insertBugService.createBugReport(this.newBug);
     this.router.navigate(['bugs']);
   }
 }

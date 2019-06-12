@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/bugs', pathMatch: 'full' },
   { path: 'bugs', component: GetBugComponent },
   { path: 'edit/:id', component: EditBugComponent },
-  { path: 'update', component: InsertBugComponent },
+  { path: 'insert', component: InsertBugComponent },
 ];
 
 @NgModule({
