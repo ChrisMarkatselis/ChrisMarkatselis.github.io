@@ -97,7 +97,7 @@ export class GetBugComponent implements OnInit {
   }
 
   insertBug() {
-    this.router.navigate(['update']);
+    this.router.navigate(['insert']);
   }
 
   deleteBugMethod(id) {
