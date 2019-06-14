@@ -1,8 +1,37 @@
 <div class="container text-center">
+  <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)" class='px-3 pt-3' style="background-color:  #323C50">
+    <div class="form-row d-flex justify-content-around align-items-end">
+      <div class="form-group">
+        <input id="title" name="title" [(ngModel)]="searchedBug.title" type="text" class="form-control" required
+          placeholder="Title" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <select id="priority" name="priority" [ngModel]="selectedPriority" (ngModelChange)="onChangePriority($event)"
+          class="form-control" required>
+          <option ngValue="" hidden>Priority</option>
+          <option *ngFor="let i of priorityOptions" [ngValue]="i.key">{{i.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select id="reporter" name="reporter" [ngModel]="selectedReporter" (ngModelChange)="onChangeReporter($event)"
+          class="form-control" required>
+          <option ngValue="" hidden>Reporter</option>
+          <option *ngFor="let i of reporterOptions" [ngValue]="i.key">{{i.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select id="status" name="status" [ngModel]="selectedStatus" (ngModelChange)="onChangeStatus($event)"
+          class="form-control" required>
+          <option ngValue="" hidden>Status</option>
+          <option *ngFor="let i of statusOptions" [ngValue]="i.key">{{i.name}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn editButtonId form-group">Search</button>
+      <button type="button" class="btn editButtonId form-group" (click)="removeFilters()">Clear Filters</button>
+      <button (click)="insertBug()" class="btn editButtonId form-group">Insert New Bug</button>
+    </div>
+  </form>
 
-  <app-search-bar></app-search-bar>
-
-  <button (click)="insertBug()" class="editButtonId">Insert New Bug</button>
   <table class="table table-bordered table-hover">
     <!-- <caption class="text-center font-italic">List of bugs</caption> -->
     <thead>
@@ -38,8 +67,8 @@
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
-        <th>  </th>
-        <th>  </th>
+        <th> </th>
+        <th> </th>
       </tr>
     </thead>
     <tbody>

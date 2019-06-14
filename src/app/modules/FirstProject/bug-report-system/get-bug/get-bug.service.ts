@@ -23,6 +23,12 @@ export class GetBugService {
   deleteBug(id): Observable<Bugs[]> {
     return this.http.delete<Bugs[]>(this.endpoint + '/' + id);
   }
+  getSearchedBug(page, title, priority, reporter, status): Observable<Bugs[]> {
+    return this.http.get<Bugs[]>(this.endpoint + '?page=' + page + '&title=' + title + '&priority=' + priority + '&reporter=' + reporter + '&status=' + status);
+  }
 
+  getSearchedBugSorted(sortBy, sortingDirection, page, title, priority, reporter, status): Observable<Bugs[]> {
+    return this.http.get<Bugs[]>(this.endpoint + '?sort=' + sortBy + ',' + sortingDirection + '&page=' + page + '&title=' + title + '&priority=' + priority + '&reporter=' + reporter + '&status=' + status);
+  }
 
 }

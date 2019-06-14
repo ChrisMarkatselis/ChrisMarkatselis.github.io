@@ -9,7 +9,6 @@ i {
 
 .table-bordered {
   border-color: #185875;
-  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .container th {
@@ -49,7 +48,6 @@ i {
 
 #pagination {
   text-align: right;
-  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .editButtonId{
@@ -57,7 +55,8 @@ i {
   font-size: 1em;
   box-shadow: 0 2px 2px -2px #0E1119;
   border-color: #1F2739;
-  color: #A7A1AE;
+  color: rgb(154, 147, 161);
+  background-color: aliceblue;
   border-radius: 5px;
 
 }

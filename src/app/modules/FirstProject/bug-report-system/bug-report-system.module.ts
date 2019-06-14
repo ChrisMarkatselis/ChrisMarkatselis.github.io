@@ -7,7 +7,6 @@ import { FooterComponent } from './footer/footer.component';
 import { GetBugComponent } from './get-bug/get-bug.component';
 import { EditBugComponent } from './edit-bug/edit-bug.component';
 import { InsertBugComponent } from './insert-bug/insert-bug.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     FooterComponent,
     GetBugComponent,
     EditBugComponent,
-    InsertBugComponent,
-    SearchBarComponent
+    InsertBugComponent
   ],
   imports: [
     CommonModule,

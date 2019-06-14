@@ -7,7 +7,7 @@
       <input id="title" name="title" [(ngModel)]="editBug.title" type="text" class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="description">PLace your description:</label>
+      <label for="description">Place your description:</label>
       <input id="description" name="description" [(ngModel)]="editBug.description" type="text" class="form-control"
         required>
     </div>
@@ -50,13 +50,13 @@
   <form #commentForm="ngForm" (ngSubmit)="onCommentSubmit(commentForm)">
     <div class="form-group">
       <label for="commentReporter">Who is the reporter:</label>
-      <input id="commentReporter" name="commentReporter" [(ngModel)]="newComment.reporter" type="text"
-        class="form-control" required>
+      <input id="commentReporter" name="reporter" [(ngModel)]="newComment.reporter" type="text" class="form-control"
+        required>
     </div>
     <div class="form-group">
       <label for="commentDescription">What is the description:</label><br>
-      <textarea id="commentDescription" name="commentDescription" [(ngModel)]="newComment.description"
-        class="form-control" rows="3"></textarea>
+      <textarea id="commentDescription" name="description" [(ngModel)]="newComment.description" class="form-control"
+        rows="3"></textarea>
     </div>
     <button type="submit" class="btn btn-success">Submit Comment</button>
   </form>

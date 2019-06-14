@@ -14,9 +14,9 @@ export interface BugComment {
   description: string;
 }
 
-export interface SearchBug {
-  title: string;
-  priority: string;
-  reporter: string;
-  status: string;
+export interface SearchBugModel {
+  title?: string;
+  priority?: string;
+  reporter?: string;
+  status?: string;
 }
