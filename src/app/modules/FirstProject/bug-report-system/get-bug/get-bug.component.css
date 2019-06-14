@@ -58,8 +58,8 @@ i {
   color: rgb(154, 147, 161);
   background-color: aliceblue;
   border-radius: 5px;
-
 }
+
 .editButtonId:hover {
   font-weight: normal;
   font-size: 1em;
@@ -67,5 +67,4 @@ i {
   border-color: #1F2739;
   color: #0E1119;
   border-radius: 5px;
-
 }

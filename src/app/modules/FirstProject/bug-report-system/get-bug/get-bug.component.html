@@ -87,8 +87,8 @@
     </tbody>
   </table>
   <div id="pagination">
-    <button id="previousPageButton" class="editButtonId" (click)="previousPage()">Previous</button>
+    <button id="previousPageButton" class="editButtonId" [disabled]="page === 0" (click)="previousPage()">Previous</button>
     <div style="color:beige; display: inline-block; margin: 0 1rem">{{page + 1}}</div>
-    <button id="nextPageButton" class="editButtonId" (click)="nextPage()">Next</button>
+    <button id="nextPageButton" class="editButtonId" [disabled]="bugsNext.length === 0 && bugs.length !== 10" (click)="nextPage()">Next</button>
   </div>
 </div>
