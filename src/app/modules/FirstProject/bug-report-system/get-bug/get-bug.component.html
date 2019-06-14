@@ -81,6 +81,9 @@
         <td><button class="editButtonId" value="editBugMethod" (click)="editBugMethod(bug.id)">Edit</button></td>
         <td><button class="editButtonId" value="deleteBugMethod" (click)="deleteBugMethod(bug.id)">Delete</button></td>
       </tr>
+      <tr *ngIf="bugs.length === 0">
+      <td colspan='7' class="font-weight-bold">No matching records found</td>
+      </tr>
     </tbody>
   </table>
   <div id="pagination">
