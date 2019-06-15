@@ -116,6 +116,7 @@ export class GetBugComponent implements OnInit {
   }
 
   onSubmit(searchForm: { value: any; valid: any; }) {
+    this.sortingDirection = '';
     this.page = 0;
     console.log(searchForm.value);
     this.getBugService.getSearchedBug(this.page, this.searchedBug.title, this.searchedBug.priority, this.searchedBug.reporter, this.searchedBug.status).subscribe((data) => {
@@ -137,6 +138,7 @@ export class GetBugComponent implements OnInit {
     });
     this.trueIfNotSearched = true;
     this.trueIfSearchedNotSorted = true;
+    this.sortingDirection = '';
   }
 
   nextPage() {
