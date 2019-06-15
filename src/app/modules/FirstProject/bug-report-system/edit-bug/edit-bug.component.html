@@ -1,15 +1,24 @@
 <div class="container" style="background-color:beige; margin-bottom: 50px;">
   <br>
-  <h2>Edit the bug you choose</h2>
+  <h2>Edit Bug Mode</h2>
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="form-group">
       <label for="title">Place your title:</label>
-      <input id="title" name="title" [(ngModel)]="editBug.title" type="text" class="form-control" required>
+      <input id="title" name="title" [(ngModel)]="editBug.title"  minlength="5" type="text" class="form-control" #title="ngModel" required>
+      <div *ngIf="!title.valid"
+        class="alert alert-danger">
+        <div *ngIf="title.errors.required"> Title is required.</div>
+        <div *ngIf="title.errors.minlength"> Title must be at least 5 characters long.</div>
+      </div>
     </div>
+
     <div class="form-group">
       <label for="description">Place your description:</label>
-      <input id="description" name="description" [(ngModel)]="editBug.description" type="text" class="form-control"
-        required>
+      <input id="description" name="description" [(ngModel)]="editBug.description" [ngModelOptions]="{updateOn: 'blur'}" type="text" class="form-control"
+        #description="ngModel" required>
+        <div class="alert alert-danger"
+        *ngIf="description.invalid"> Description is required!
+        </div>
     </div>
     <div class="form-group">
       <label for="priority">Choose the priority:</label><br>
@@ -27,7 +36,7 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="status">Chooce the status:</label><br>
+      <label for="status">Choose the status:</label><br>
       <select id="status" name="status" [ngModel]="selectedStatus" (ngModelChange)="onChangeStatus($event)"
         class="form-control" required>
         <option *ngFor="let i of statusOptions" [ngValue]="i.key">{{i.name}}</option>
@@ -39,7 +48,7 @@
         Description of the comment: {{comment.description}}<br>
       </li>
     </ul>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" [disabled]="!f.valid" class="btn btn-success">Submit</button>
   </form>
   <br>
 </div>
@@ -50,15 +59,21 @@
   <form #commentForm="ngForm" (ngSubmit)="onCommentSubmit(commentForm)">
     <div class="form-group">
       <label for="commentReporter">Who is the reporter:</label>
-      <input id="commentReporter" name="reporter" [(ngModel)]="newComment.reporter" type="text" class="form-control"
-        required>
+      <input id="commentReporter" name="commentReporter" [(ngModel)]="newComment.reporter" [ngModelOptions]="{updateOn: 'blur'}" type="text"
+        class="form-control" #reporter="ngModel" required>
+        <div class="alert alert-danger"
+        *ngIf="!reporter.valid && (reporter.dirty || reporter.touched)"> Please enter the reporter's name!
+        </div>
     </div>
     <div class="form-group">
       <label for="commentDescription">What is the description:</label><br>
-      <textarea id="commentDescription" name="description" [(ngModel)]="newComment.description" class="form-control"
-        rows="3"></textarea>
+      <textarea id="commentDescription" name="commentDescription" [(ngModel)]="newComment.description" [ngModelOptions]="{updateOn: 'blur'}"
+        class="form-control" rows="3" #commentDescription="ngModel" required></textarea>
+        <div class="alert alert-danger"
+          *ngIf="!commentDescription.valid && (commentDescription.dirty || commentDescription.touched)"> Please enter your Description!
+        </div>
     </div>
-    <button type="submit" class="btn btn-success">Submit Comment</button>
+    <button type="submit" [disabled]="!commentForm.valid" class="btn btn-success">Submit Comment</button>
   </form>
   <br>
 </div>

@@ -9,7 +9,7 @@ import { InsertBugService } from './insert-bug.service';
   styleUrls: ['./insert-bug.component.css']
 })
 export class InsertBugComponent implements OnInit {
-
+  isSubmitted = false;
   date = new Date();
   newBug: Bugs = {
     title: '',
@@ -55,5 +55,6 @@ export class InsertBugComponent implements OnInit {
     console.log(this.newBug);
     this.insertBugService.createBugReport(this.newBug);
     this.router.navigate(['bugs']);
+    this.isSubmitted = true;
   }
 }

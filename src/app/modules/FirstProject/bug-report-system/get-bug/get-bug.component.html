@@ -74,9 +74,9 @@
     <tbody>
       <tr *ngFor="let bug of bugs">
         <td>{{bug.title}}</td>
-        <td>{{bug.priority}}</td>
+        <td>{{bug.priority | stringifyPriority}}</td>
         <td>{{bug.reporter}}</td>
-        <td>{{bug.createdAt}}</td>
+        <td>{{bug.createdAt | date: 'd/M/yy - H:mm'}}</td>
         <td>{{bug.status}}</td>
         <td><button class="editButtonId" value="editBugMethod" (click)="editBugMethod(bug.id)">Edit</button></td>
         <td><button class="editButtonId" value="deleteBugMethod" (click)="deleteBugMethod(bug.id)">Delete</button></td>

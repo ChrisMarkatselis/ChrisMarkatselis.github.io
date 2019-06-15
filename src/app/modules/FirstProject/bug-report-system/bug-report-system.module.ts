@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { GetBugComponent } from './get-bug/get-bug.component';
 import { EditBugComponent } from './edit-bug/edit-bug.component';
 import { InsertBugComponent } from './insert-bug/insert-bug.component';
+import { StringifyPriorityPipe } from './get-bug/stringify-priority.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { InsertBugComponent } from './insert-bug/insert-bug.component';
     FooterComponent,
     GetBugComponent,
     EditBugComponent,
-    InsertBugComponent
+    InsertBugComponent,
+    StringifyPriorityPipe
   ],
   imports: [
     CommonModule,
