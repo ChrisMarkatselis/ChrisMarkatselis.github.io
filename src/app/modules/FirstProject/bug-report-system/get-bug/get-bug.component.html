@@ -74,6 +74,7 @@
     <tbody>
       <tr *ngFor="let bug of bugs">
         <td>{{bug.title}}</td>
+        <!-- <td>{{bug.priority | stringifyPriority}}</td> -->
         <td>{{bug.priority | stringifyPriority}}</td>
         <td>{{bug.reporter}}</td>
         <td>{{bug.createdAt | date: 'd/M/yy - H:mm'}}</td>

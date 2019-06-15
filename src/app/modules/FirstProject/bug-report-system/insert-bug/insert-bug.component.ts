@@ -15,8 +15,8 @@ export class InsertBugComponent implements OnInit {
     title: '',
     description: '',
     priority: null,
-    reporter: '',
-    status: '',
+    reporter: null,
+    status: null,
     createdAt: this.date.toString()
   };
 
@@ -47,8 +47,6 @@ export class InsertBugComponent implements OnInit {
   ngOnInit() {
   }
   onUpdate(insertform) {
-    this.newBug.title = insertform.title;
-    this.newBug.description = insertform.description;
     this.newBug.priority = insertform.priority;
     this.newBug.reporter = insertform.reporter;
     this.newBug.status = insertform.statuss;
