@@ -8,6 +8,7 @@ import { GetBugComponent } from './get-bug/get-bug.component';
 import { EditBugComponent } from './edit-bug/edit-bug.component';
 import { InsertBugComponent } from './insert-bug/insert-bug.component';
 import { StringifyPriorityPipe } from './get-bug/stringify-priority.pipe';
+import { CapitalizePipe } from './get-bug/capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StringifyPriorityPipe } from './get-bug/stringify-priority.pipe';
     GetBugComponent,
     EditBugComponent,
     InsertBugComponent,
-    StringifyPriorityPipe
+    StringifyPriorityPipe,
+    CapitalizePipe
   ],
   imports: [
     CommonModule,

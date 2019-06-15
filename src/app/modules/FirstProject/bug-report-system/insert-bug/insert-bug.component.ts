@@ -33,13 +33,13 @@ export class InsertBugComponent implements OnInit {
   reporterOptions = [
     { key: 'QA', reporter: 'QA' },
     { key: 'PO', reporter: 'PO' },
-    { key: 'Dev', reporter: 'Dev' }
+    { key: 'DEV', reporter: 'DEV' }
   ];
 
   statusOptions = [
-    { key: 'Ready for test', statuss: 'Ready for test' },
-    { key: 'Done', statuss: 'Done' },
-    { key: 'Rejected', statuss: 'Rejected' }
+    { key: 'Ready for test', status: 'Ready for test' },
+    { key: 'Done', status: 'Done' },
+    { key: 'Rejected', status: 'Rejected' }
   ];
 
   constructor(private route: ActivatedRoute, private router: Router, private insertBugService: InsertBugService) { }
