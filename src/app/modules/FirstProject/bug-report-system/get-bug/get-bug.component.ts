@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./get-bug.component.css']
 })
 export class GetBugComponent implements OnInit {
-  bugs: Bugs[];
+  bugs: Bugs[] = [];
   // bugsNext and bugsNextSorted are being used in pagination, to check if the next page has bugs.
   bugsNext: Bugs[] = [];
   bugsNextSorted: Bugs[] = [];
