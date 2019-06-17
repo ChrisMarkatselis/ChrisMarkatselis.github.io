@@ -121,6 +121,31 @@ export class GetBugComponent implements OnInit {
       for (let i = 0; i < this.bugs.length; ++i) {
         if (this.bugs[i].id === id) {
           this.bugs.splice(i, 1);
+          if (this.trueIfNotSorted && this.trueIfNotSearched) {
+            this.getBugService.getBugReport(this.page).subscribe((data) => {
+              this.bugs = data;
+              this.bugsNext = data;
+            });
+          } else if (!this.trueIfNotSorted && this.trueIfNotSearched) {
+            this.getBugService.getBugReportSorted(this.sortByVar, this.sortingDirection, this.page).subscribe((data) => {
+              this.bugs = data;
+              this.bugsNextSorted = data;
+              this.trueIfNotSorted = false;
+            });
+          } else if (!this.trueIfNotSearched && this.trueIfSearchedNotSorted) {
+            this.getBugService.getSearchedBug(this.page, this.searchedBug.title, this.searchedBug.priority, this.searchedBug.reporter, this.searchedBug.status).subscribe((data) => {
+              this.bugs = data;
+              this.bugsNext = data;
+              this.trueIfNotSearched = false;
+            });
+          } else if (!this.trueIfNotSearched && !this.trueIfSearchedNotSorted) {
+            this.getBugService.getSearchedBugSorted(this.sortByVar, this.sortingDirection, this.page, this.searchedBug.title, this.searchedBug.priority, this.searchedBug.reporter, this.searchedBug.status).subscribe((data) => {
+              this.bugs = data;
+              this.bugsNextSorted = data;
+              this.trueIfNotSorted = false;
+              this.trueIfNotSearched = false;
+            });
+          }
         }
       }
     });
@@ -144,6 +169,9 @@ export class GetBugComponent implements OnInit {
       this.bugs = data;
       this.bugsNext = data;
       this.searchedBug.title = '';
+      this.searchedBug.priority = '';
+      this.searchedBug.reporter = '';
+      this.searchedBug.status = '';
       this.selectedPriority = '';
       this.selectedReporter = '';
       this.selectedStatus = '';

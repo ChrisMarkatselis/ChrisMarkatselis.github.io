@@ -35,17 +35,17 @@
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'reporter'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'reporter'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
-        <th (click)="sort('createdAt')">Date Created
-          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'createdAt'"
-            [ngClass]="'fa fa-sort iconColor'"></i>
-          <i *ngIf="sortingDirection === 'asc' && sortByVar === 'createdAt'" [ngClass]="'fa fa-sort-up'"></i>
-          <i *ngIf="sortingDirection === 'desc' && sortByVar === 'createdAt'" [ngClass]="'fa fa-sort-down'"></i>
-        </th>
         <th (click)="sort('status')">Status
           <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'status'"
             [ngClass]="'fa fa-sort iconColor'"></i>
           <i *ngIf="sortingDirection === 'asc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-up'"></i>
           <i *ngIf="sortingDirection === 'desc' && sortByVar === 'status'" [ngClass]="'fa fa-sort-down'"></i>
+        </th>
+        <th (click)="sort('createdAt')">Date Created
+          <i *ngIf="(sortingDirection === 'asc' || sortingDirection === 'desc') && sortByVar !== 'createdAt'"
+            [ngClass]="'fa fa-sort iconColor'"></i>
+          <i *ngIf="sortingDirection === 'asc' && sortByVar === 'createdAt'" [ngClass]="'fa fa-sort-up'"></i>
+          <i *ngIf="sortingDirection === 'desc' && sortByVar === 'createdAt'" [ngClass]="'fa fa-sort-down'"></i>
         </th>
         <th>
           <button title="Filters" type="button" class="btn btn-sm btnFilters filters" (click)="showFilterForm()">
@@ -111,8 +111,8 @@
         <td>{{bug.title}}</td>
         <td>{{bug.priority | stringifyPriority}}</td>
         <td>{{bug.reporter | uppercase}}</td>
-        <td>{{bug.createdAt | date: 'd/M/yy - H:mm'}}</td>
         <td>{{bug.status | capitalize }}</td>
+        <td>{{bug.createdAt | date: 'd/M/yy - H:mm'}}</td>
         <td>
           <button title="Edit" class="btn btn-sm btnEditBug" value="editBugMethod" (click)="editBugMethod(bug.id)">
             <span class="fa-stack">
