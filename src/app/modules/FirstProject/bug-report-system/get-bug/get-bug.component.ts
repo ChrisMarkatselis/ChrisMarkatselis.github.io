@@ -26,6 +26,8 @@ export class GetBugComponent implements OnInit {
   trueIfNotSorted = true;
   trueIfNotSearched = true;
   trueIfSearchedNotSorted = true;
+  // toggleBtn = true;
+  filterIconClicked = false;
 
   selectedPriority = '';
   selectedReporter = '';
@@ -64,15 +66,24 @@ export class GetBugComponent implements OnInit {
   onChangePriority(e) {
     this.searchedBug.priority = e;
     this.selectedPriority = e;
+    // this.toggleBtn = true;
   }
+
   onChangeReporter(e) {
     this.searchedBug.reporter = e;
     this.selectedReporter = e;
+    // this.toggleBtn = true;
   }
+
   onChangeStatus(e) {
     this.searchedBug.status = e;
     this.selectedStatus = e;
+    // this.toggleBtn = true;
   }
+
+  // onChangeTitle(e) {
+  //   this.toggleBtn = true;
+  // }
 
   sort(sortBy: string) {
     this.page = 0;
@@ -118,15 +129,16 @@ export class GetBugComponent implements OnInit {
   onSubmit(searchForm: { value: any; valid: any; }) {
     this.sortingDirection = '';
     this.page = 0;
-    console.log(searchForm.value);
     this.getBugService.getSearchedBug(this.page, this.searchedBug.title, this.searchedBug.priority, this.searchedBug.reporter, this.searchedBug.status).subscribe((data) => {
       this.bugs = data;
       this.bugsNext = data;
     });
     this.trueIfNotSearched = false;
+    // this.toggleBtn = false;
   }
 
   removeFilters() {
+    // this.toggleBtn = true;
     this.page = 0;
     this.getBugService.getBugReport(this.page).subscribe((data) => {
       this.bugs = data;
@@ -217,6 +229,13 @@ export class GetBugComponent implements OnInit {
       this.getBugService.getSearchedBugSorted(this.sortByVar, this.sortingDirection, this.page, this.searchedBug.title, this.searchedBug.priority, this.searchedBug.reporter, this.searchedBug.status).subscribe((data) => {
         this.bugs = data;
       });
+    }
+  }
+  showFilterForm() {
+    if (!this.filterIconClicked) {
+      this.filterIconClicked = true;
+    } else {
+      this.filterIconClicked = false;
     }
   }
 }

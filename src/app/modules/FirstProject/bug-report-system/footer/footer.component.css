@@ -5,11 +5,18 @@ h2 {
   line-height: 1em;
   padding-bottom: 2em;
   color: #FB667A;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 h2 span {
   font-weight: 700;
   text-transform: uppercase;
   color: #FB667A;
+}
+
+.footer {
+  padding-top: 2rem;
+}
+
+.jumbotron {
+  background-color: #1F2739;
 }
